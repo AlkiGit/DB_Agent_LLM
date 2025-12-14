@@ -1,44 +1,24 @@
-프로젝트의 구조(LangGraph, Multi-LLM, SQLAlchemy 등)를 완벽하게 반영한 전문적인 README.md 초안입니다.
-
-이 파일을 프로젝트 최상위 경로에 저장하시면, GitHub이나 GitLab에 올렸을 때 프로젝트의 정체성을 명확하게 보여줄 수 있습니다.
-
-🤖 AI Database Analyst (Text-to-SQL Agent)
 LangGraph 기반의 에이전트 파이프라인을 통해 자연어 질문을 SQL로 변환하고, 데이터베이스에서 조회한 결과를 분석하여 답변을 제공하는 AI 시스템입니다.
 
-✨ 주요 기능 (Key Features)
+주요 기능 (Key Features)
 Multi-LLM Support: Google Gemini, Anthropic Claude, OpenAI GPT 모델 중 원하는 모델을 선택하여 사용할 수 있는 유연한 구조 (Dependency Injection 적용).
-
 LangGraph Pipeline: 명확한 상태 관리와 에이전트 간의 흐름 제어.
-
 Modular Agent System: 각 역할에 특화된 에이전트 구성.
 
-🧠 Brain Agent: 사용자 의도 파악 및 라우팅.
 
-🧹 Preprocessing Agent: 질문 정제 및 명확화.
-
-💻 SQL Generate Agent: 데이터베이스 스키마 기반 SQL 쿼리 생성.
-
-📊 Answer Agent: SQL 실행 및 결과 데이터를 기반으로 최종 답변 요약.
-
-SQLAlchemy Integration: 다양한 데이터베이스(PostgreSQL, MySQL 등)와의 호환성 확보.
-
-🏗️ 아키텍처 (Architecture)
-이 프로젝트는 LangGraph를 사용하여 다음과 같은 순차적 흐름(StateGraph)을 따릅니다.
-
-코드 스니펫
-
+--Architecture--
 graph LR
     Start([User Input]) --> Brain[🧠 Brain Agent]
     Brain --> Pre[🧹 Preprocessing Agent]
     Pre --> SQL[💻 SQL Generate Agent]
     SQL --> Answer[📊 Answer Agent]
     Answer --> End([Final Answer])
+
+
+--Agent--
 Brain Agent: 사용자의 질문을 분석하여 필요한 정보가 무엇인지 판단합니다.
-
 Preprocessing Agent: 모호한 질문을 구체화하거나 불필요한 정보를 제거합니다.
-
 SQL Generate Agent: 정제된 질문을 실행 가능한 SQL 쿼리로 변환합니다.
-
 Answer Agent: 생성된 SQL을 DB에서 실행하고, 조회된 데이터를 자연어로 요약하여 사용자에게 전달합니다.
 
 🛠️ 설치 및 설정 (Installation)
@@ -120,14 +100,12 @@ python main.py
 
 📦 기술 스택 (Tech Stack)
 Language: Python 3.9+
-
 Orchestration: LangGraph, LangChain
-
 LLMs: Google Gemini (via google-genai), Anthropic Claude, OpenAI GPT
-
 Database: SQLAlchemy
-
 Configuration: Python-dotenv
+
+README는 Gemini 3.0 pro를 통해 작성되었습니다
 
 📝 License
 This project is licensed under the MIT License.
