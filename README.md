@@ -1,4 +1,4 @@
-# AI Database Analyst (Text-to-SQL Agent)
+# LLM - Database Agent Solution (Text-to-SQL Agent)
 
 [![Python](https://img.shields.io/badge/Python-3.9+-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![LangGraph](https://img.shields.io/badge/Orchestration-LangGraph-FF4B4B)](https://langchain-ai.github.io/langgraph/)
