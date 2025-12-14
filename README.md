@@ -1,24 +1,38 @@
 LangGraph 기반의 에이전트 파이프라인을 통해 자연어 질문을 SQL로 변환하고, 데이터베이스에서 조회한 결과를 분석하여 답변을 제공하는 AI 시스템입니다.
 
+
 주요 기능 (Key Features)
+
 Multi-LLM Support: Google Gemini, Anthropic Claude, OpenAI GPT 모델 중 원하는 모델을 선택하여 사용할 수 있는 유연한 구조 (Dependency Injection 적용).
+
 LangGraph Pipeline: 명확한 상태 관리와 에이전트 간의 흐름 제어.
+
 Modular Agent System: 각 역할에 특화된 에이전트 구성.
+
 
 
 --Architecture--
 graph LR
+
     Start([User Input]) --> Brain[🧠 Brain Agent]
+
     Brain --> Pre[🧹 Preprocessing Agent]
+
     Pre --> SQL[💻 SQL Generate Agent]
+
     SQL --> Answer[📊 Answer Agent]
+
     Answer --> End([Final Answer])
+
 
 
 --Agent--
 Brain Agent: 사용자의 질문을 분석하여 필요한 정보가 무엇인지 판단합니다.
+
 Preprocessing Agent: 모호한 질문을 구체화하거나 불필요한 정보를 제거합니다.
+
 SQL Generate Agent: 정제된 질문을 실행 가능한 SQL 쿼리로 변환합니다.
+
 Answer Agent: 생성된 SQL을 DB에서 실행하고, 조회된 데이터를 자연어로 요약하여 사용자에게 전달합니다.
 
 🛠️ 설치 및 설정 (Installation)
